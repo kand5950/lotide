@@ -2,8 +2,7 @@
 
 const tail = function(actual) {
   
-  const [head, ...tail] = actual;
-  return [head, ...tail];
+  return actual.slice(1);
 };
 const result = tail(["Hello", "Lighthouse", "Labs"]);
 
