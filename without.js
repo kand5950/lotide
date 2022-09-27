@@ -1,25 +1,7 @@
-const eqArrays = function(source, itemsToRemove) {
-  if (source.length !== itemsToRemove.length) {
-    return false;
-  } else {
-    for (let i = 0; i < source.length; i++) {
-      if (source[i] !== itemsToRemove[i]) {
-        return false;
-      }
-    }
-    return true;
-  }
-};
+const eqArrays = require('./eqArrays');
 
-const assertArraysEqual = function(source, itemsToRemove) {
+const assertArraysEqual = require('./assertArraysEqual');
 
-  if (eqArrays(source, itemsToRemove)) {
-    console.log(`✅✅✅ Assertion Passed: ${source} === ${itemsToRemove}`);
-    
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${source} !== ${itemsToRemove}`);
-  }
-};
 const words = ["hello", "world", "lighthouse"];
 const without = function(source, itemsToRemove) {
 
