@@ -1,23 +1,25 @@
-const assertEqual = require('./assertEqual');
-
 const eqArrays = require('./eqArrays');
 
 const eqObjects = function(object1, object2) {
   let keys1 = Object.keys(object1);
   let keys2 = Object.keys(object2);
-  let result = false;
-  if (keys1.length === keys2.length) {
-    for (const element of keys1){
-      if (keys2.includes(element) && object1[element] === object2[element]) {
-        result = true;
-      } else if (Array.isArray(object1[element]) && Array.isArray(object2[element])) {
-        result = eqArrays(object1[element], object2[element]);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+    for (let element of keys1){
+      if (Array.isArray(object1[element]) && Array.isArray(object2[element])) {
+        if (!eqArrays(object1[element], object2[element])) {
+          return false;
+        }
       } else {
-        result = false;
+        if (object1[element] !== object2[element]) {
+        return false;
       }
     }
-  }
-  return result;
-};
+    
+    }
+    return true;
+  };
 
 module.exports = eqObjects;
