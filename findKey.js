@@ -25,4 +25,6 @@ const test1 = console.log(findKey({
   "Akelarre":  { stars: 3 }
 }, x => x.stars === 3)); // => "noma"
 
+module.exports = findKey;
+
 
